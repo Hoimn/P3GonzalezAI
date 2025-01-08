@@ -20,10 +20,11 @@ public class FollowWP : MonoBehaviour
         if (Vector3.Distance(this.transform.position, waypoints[currentWP].transform.position) < 3)
             currentWP++;
 
-        if (currentWP < waypoints.Length)
+        if (currentWP >= waypoints.Length)
             currentWP = 0;
 
-        this.transform.LookAt(waypoints[currentWP].transform);
+        //this.transform.LookAt(waypoints[currentWP].transform);
+        Quaternion lookatWP = Quaternion.LookRotation(waypoints[currentWP].transform.position - this.transform.position);
         this.transform.Translate(0, 0, speed * Time.deltaTime);
     }
 }
