@@ -121,7 +121,10 @@ NavMeshSettings:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of dc48903 (finsihed the project)
 --- !u!1001 &22354716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -793,6 +796,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 650ea2e5f9c3b4ae4aa6e7fdf6cf157b, type: 3}
+<<<<<<< HEAD
+>>>>>>> parent of dc48903 (finsihed the project)
+=======
 >>>>>>> parent of dc48903 (finsihed the project)
 --- !u!1 &1113270534
 GameObject:
@@ -987,7 +993,10 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of dc48903 (finsihed the project)
 --- !u!1001 &1384538692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1171,6 +1180,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 650ea2e5f9c3b4ae4aa6e7fdf6cf157b, type: 3}
+<<<<<<< HEAD
+>>>>>>> parent of dc48903 (finsihed the project)
+=======
 >>>>>>> parent of dc48903 (finsihed the project)
 --- !u!1001 &1606785907
 PrefabInstance:
@@ -1232,7 +1244,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 3.686157
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of dc48903 (finsihed the project)
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c58838a1d6c17484393fa08cdb7f059d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1281,7 +1296,10 @@ BoxCollider:
   m_Size: {x: 1.4133282, y: 1.657383, z: 2.1057386}
   m_Center: {x: 0.0262537, y: 0.8644688, z: 0.06936526}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of dc48903 (finsihed the project)
 --- !u!1001 &2084539362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1370,4 +1388,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+>>>>>>> parent of dc48903 (finsihed the project)
+=======
 >>>>>>> parent of dc48903 (finsihed the project)
