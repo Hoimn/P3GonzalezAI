@@ -22,9 +22,8 @@ public class FollowWaypoint : MonoBehaviour
         waypoints = wpManager.GetComponent<WPManager>().waypoints;
         g = wpManager.GetComponent<WPManager>().graph;
         currentNode = waypoints[0];
-
-        Invoke("GoToHeli", 2);
     }
+
     // Update is called once per frame
     void Update()
     {
