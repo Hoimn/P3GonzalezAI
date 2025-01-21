@@ -1349,10 +1349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42faef5e93fb5594ebe1760e9496a243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  rotSpeed: 5
   wpManager: {fileID: 2090872143}
-  currentWP: 0
 --- !u!195 &1761980788
 NavMeshAgent:
   m_ObjectHideFlags: 0
