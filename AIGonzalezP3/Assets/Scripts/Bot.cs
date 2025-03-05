@@ -40,9 +40,60 @@ public class Bot : MonoBehaviour
         Seek(target.transform.position + target.transform.forward * lookAhead);
     }
 
+    void Evade()
+    {
+        Vector3 targetDir = target.transform.position - this.transform.position;
+        float lookAhead = targetDir.magnitude / (agent.speed + target.GetComponent<Drive>().currentSpeed);
+        Flee(target.transform.position + target.transform.forward * lookAhead);
+    }
+
+    Vector3 wanderTarget = Vector3.zero;
+    void Wander()
+    {
+        float wanderRadius = 10;
+        float wanderDistance = 10;
+        float wanderJitter = 1;
+
+        wanderTarget += new Vector3(Random.Range(-1.0f, 1.0f) * wanderJitter, 0, Random.Range(-1.0f, 1.0f) * wanderJitter);
+
+        wanderTarget.Normalize();
+        wanderTarget *= wanderRadius;
+
+        Vector3 targetLocal = wanderTarget + new Vector3(0, 0, wanderDistance);
+        Vector3 targetWorld = this.gameObject.transform.InverseTransformVector(targetLocal);
+
+        Seek(targetWorld);
+    }
+
+    void CleverHide()
+    {
+        float dist = Mathf.Infinity;
+        Vector3 chosenSpot = Vector3.zero;
+        Vector3 chosenDir = Vector3.zero;
+        GameObject chosenGO = World.Instance.GetHidingSpots()[0];
+
+
+        for (int i = 0; i < World.Instance.GetHidingSpots().Length; i++)
+        {
+            Vector3 hideDir = World.Instance.GetHidingSpots()[i].transform.position - target.transform.position;
+            Vector3 hidePos = World.Instance.GetHidingSpots()[i].transform.position + hideDir.normalized * 10;
+
+            if (Vector3.Distance(this.transform.position, hidePos) < dist)
+            {
+                chosenSpot = hidePos;
+                chosenDir = hideDir;
+                chosenGO = World.Instance.GetHidingSpots()[i];
+                dist = Vector3.Distance(this.transform.position, hidePos);
+            }
+        }
+
+        Collider hideCol = chosenGO.GetComponent<Collider>();
+
+        Seek(chosenSpot);
+    }
     // Update is called once per frame
     void Update()
     {
-        Pursue();
+        CleverHide();
     }
 }
