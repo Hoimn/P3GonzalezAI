@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -88,12 +89,65 @@ public class Bot : MonoBehaviour
         }
 
         Collider hideCol = chosenGO.GetComponent<Collider>();
+        Ray backRay = new Ray(chosenSpot, - chosenDir.normalized);
+        RaycastHit info;
+        float distance = 100.0f;
+        hideCol.Raycast(backRay, out info, distance);
+
+        Seek(info.point + chosenDir.normalized * 5);
 
         Seek(chosenSpot);
+    }
+
+    bool CanSeeTarget()
+    {
+        RaycastHit raycastInfo;
+        Vector3 rayToTarget = target.transform.position - this.transform.position;
+        if (Physics.Raycast(this.transform.position, rayToTarget, out raycastInfo))
+        {
+            if (raycastInfo.transform.gameObject.tag == "cop")
+                return true;
+        }
+        return false;
+    }
+
+    bool TargetCanSeeMe()
+    {
+        Vector3 toAgent = this.transform.position - target.transform.position;
+        float lookingAngle = Vector3.Angle(this.transform.position, toAgent);
+
+        if (lookingAngle < 60)
+            return true;
+        return false;
+    }
+
+    bool coolDown = false;
+    void BehaviorCoolDown()
+    {
+        coolDown = false;
+    }
+
+    bool TargetInRange()
+    {
+        if (Vector3.Distance(this.transform.position, target.transform.position) < 10) return true;
+        return false;
     }
     // Update is called once per frame
     void Update()
     {
-        CleverHide();
+        if (!coolDown)
+        {
+            if (!TargetInRange())
+            {
+                Wander();
+            }
+            else if (CanSeeTarget() && TargetCanSeeMe())
+            {
+                CleverHide();
+                coolDown = true;
+                Invoke("BehaviorCoolDown", 5);
+            }
+            else Pursue();
+        }
     }
 }
