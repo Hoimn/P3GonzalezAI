@@ -6,6 +6,8 @@ TagManager:
   tags:
   - hide
   - cop
+  - wp
+  - goal
   layers:
   - Default
   - TransparentFX
